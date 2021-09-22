@@ -35,7 +35,7 @@ end
 
   def buyed
     logger.info(params[:user_id])
-    buy = Buy.new(reserve_id: params[:book_id], user_id: params[:user_id])
+    buy = Buy.new(reserve_id: params[:book_idx], user_id: params[:user_id])
     if buy.save
       respond_to do |format|
         format.html {redirect_to buye_path,notice: "Your buy was book. congrats!"}
@@ -48,7 +48,7 @@ end
 
   def reserve
     logger.info (params)
-    reserve = Reserve.create(reserve_id: params[:book_id], user_id: current_user.id)
+    reserve = Reserve.create(book_id: params[:id], user_id: current_user.id)
     if reserve.save!
       respond_to do |format|
         format.html {redirect_to root_path,notice: "Your book was reserved. congrats!"}

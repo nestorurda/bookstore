@@ -3,7 +3,7 @@
     <%= form.label :title,'What is Book are you buy?' %>
     <div class="field">
 
-    <select class="form-select mt-1 mb-2" name="book_id" id="category_select" aria-label="Default select example">
+    <select class="form-select mt-1 mb-2" name="book_idx" id="category_select" aria-label="Default select example">
       <%= @reserve.each do |a| %>
       <option value="<%= a.id %>"><%= a.book.title %></option>
       <% end %>
@@ -17,8 +17,11 @@
  
  <script>
  setTimeout(function(){ 
-   alert("Finish time for buying"); 
+   $('#msg').html('<h2>Time expired for buying book</h2>')
    $('#form').html(' ')
+   setTimeout(function(){
+     $('#msg').html(' ')
+   },2000)
  }, 3000);
 
  
