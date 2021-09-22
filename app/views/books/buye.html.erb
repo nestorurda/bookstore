@@ -1,0 +1,23 @@
+
+    <h2>Compras</h2>
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">IdReserva</th>
+      <th scope="col">IdBooks</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @buy.each do |buyed| %>
+      <tr> 
+        <td><%= buyed.id %> </td>
+        <td><%= buyed.reserve.book.id %> </td>
+        <td> <%= buyed.reserve.book.title %> </td>
+        <td> <%= buyed.reserve.book.author %> </td>    
+        <td><%= link_to 'Destroy', reserve_destroy_path(buyed.id), method: :delete, data: { confirm: 'Are you sure?' }, remote:true %></td> 
+      </tr> 
+    <% end %>
+  </tbody>
+</table>

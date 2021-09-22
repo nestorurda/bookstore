@@ -1,0 +1,9 @@
+<% @reserve.each do |reserves| %>
+      <tr> 
+        <td><%= reserves.id %> </td>
+        <td><%= reserves.book.id %> </td>
+        <td> <%= reserves.book.title %> </td>
+        <td> <%= reserves.book.author %> </td>    
+        <td><%= link_to 'Destroy', reserve_destroy_path(reserves.id), method: :delete, data: { confirm: 'Are you sure?' }, remote:true %></td> 
+      </tr> 
+    <% end %>
